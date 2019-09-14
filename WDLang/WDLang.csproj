@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58FFE09C-6A7F-48CC-9101-B75FDF8E568F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WDLang</RootNamespace>
+    <AssemblyName>WDLang</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WDLib, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WDLib.0.9.0\lib\net472\WDLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Languages.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Words\Controls\WordSelectionBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Words\Controls\WordSelectionBox.Designer.cs">
+      <DependentUpon>WordSelectionBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Words\Definition.cs" />
+    <Compile Include="Words\DictionaryFactory.cs" />
+    <Compile Include="Words\Import\GCIDE\GCIDEWord.cs" />
+    <Compile Include="Words\LanguageDictionary.cs" />
+    <Compile Include="Words\Pronunciation.cs" />
+    <Compile Include="Words\TextMining\Corpus.cs" />
+    <Compile Include="Words\TextMining\CorpusParsers\BioMedXMLParser.cs" />
+    <Compile Include="Words\TextMining\CorpusParsers\CorpusParser.cs" />
+    <Compile Include="Words\TextMining\CorpusParsers\GenericXMLParser.cs" />
+    <Compile Include="Words\TextMining\CorpusParsers\PlainTextParser.cs" />
+    <Compile Include="Words\TextMining\CorpusProcessor.cs" />
+    <Compile Include="Words\TextMining\CorpusParsers\GrAFCorpusParser.cs" />
+    <Compile Include="Words\TextMining\TextData.cs" />
+    <Compile Include="Words\TextParseEngine.cs" />
+    <Compile Include="Words\Word.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Words\Controls\WordSelectionBox.resx">
+      <DependentUpon>WordSelectionBox.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dictionaries\english_gcide.dic" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
