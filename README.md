@@ -28,7 +28,7 @@ The code and project is licenced under [GPLv3](http://www.gnu.org/licenses/gpl-3
 
 # Projects
 
-## WDData
+## WDLang
 A library for handeling dictionaries and words. This is the project pushed to nuget.
 
 ## BuildDataFiles_util
